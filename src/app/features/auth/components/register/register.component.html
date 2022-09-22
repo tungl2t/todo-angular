@@ -21,17 +21,17 @@
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>{{'auth.label.confirmPassword' | transloco}}</mat-label>
-            <input formControlName="confirmPassword" matInput required type="password">
+            <input formControlName="confirmPassword" matInput type="password">
             <mat-error
-              *ngIf="registerForm?.hasError('passwordNotMatch', 'pw') && registerForm.get('pw.confirmPassword')?.touched">{{'auth.error.invalidConfirmPassword' | transloco}}
+              *ngIf="registerForm?.hasError('passwordNotMatch', 'pw.confirmPassword') && registerForm.get('pw.confirmPassword')?.touched">{{'auth.error.invalidConfirmPassword' | transloco}}
             </mat-error>
           </mat-form-field>
         </div>
-        <button color="primary" mat-raised-button
+        <button color="primary" mat-raised-button class="register-section__form__button-submit"
                 type="submit">{{'auth.button.register' | transloco}}</button>
       </form>
       <span class="register-section__label-login"
-            routerLink="/auth/login">{{'auth.label.login'| transloco}}</span>
+            routerLink="/auth/sign-in">{{'auth.label.login'| transloco}}</span>
 
     </mat-card-content>
   </mat-card>

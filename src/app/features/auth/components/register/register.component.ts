@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { BaseComponent } from '@components';
 import { AuthService } from '@auth/services';
+import { IRegister } from '@auth/interfaces';
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -27,6 +29,18 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm?.valid) {
+      const registerBody: IRegister = {
+        email: this.registerForm.value.email,
+        password: this.registerForm.value.pw.password,
+      };
+      this._authService
+        .register(registerBody)
+        .pipe(takeUntil(this.unSubscribeOnDestroy))
+        .subscribe({
+          next: (v) => {
+            this._router.navigate(['auth', 'sign-in']);
+          },
+        });
     }
   }
 
@@ -47,10 +61,9 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 }
 
 export function comparePassword(c: AbstractControl) {
-  const v = c.value;
-  return v.password === v.confirmPassword
-    ? null
-    : {
-        passwordNotMatch: true,
-      };
+  const { password, confirmPassword } = c.value;
+  if (password !== confirmPassword) {
+    c.get('confirmPassword')?.setErrors({ passwordNotMatch: true });
+  }
+  return null;
 }
