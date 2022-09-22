@@ -1,0 +1,23 @@
+.register-section {
+  min-width: 300px;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    &__pw {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__label-login {
+    font-size: 0.8rem;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

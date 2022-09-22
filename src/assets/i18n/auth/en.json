@@ -1,0 +1,22 @@
+{
+  "title": {
+    "signIn": "Sign in",
+    "register": "Register"
+  },
+  "error": {
+    "invalidEmail": "Email is invalid!",
+    "invalidPassword": "Password is invalid!",
+    "invalidConfirmPassword": "Your password doesn't match!"
+  },
+  "button": {
+    "login": "Login",
+    "register": "Register"
+  },
+  "label": {
+    "email": "Enter your email",
+    "password": "Enter your password",
+    "confirmPassword": "Confirm your password",
+    "register": "Don't have an account yet? Sign up here!",
+    "login": "Already have an account? Login here!"
+  }
+}

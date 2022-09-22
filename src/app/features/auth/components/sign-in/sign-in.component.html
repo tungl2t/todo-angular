@@ -1,0 +1,29 @@
+<section class="sign-in-section">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ 'auth.title.signIn' | transloco }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="loginForm">
+      <form (submit)="onSubmit()" [formGroup]="loginForm" class="sign-in-section__form">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'auth.label.email' | transloco}}</mat-label>
+          <input formControlName="email" matInput placeholder="devtest@example.com" required>
+          <mat-error *ngIf="loginForm.get('email')?.invalid">{{'auth.error.invalidEmail' | transloco}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{'auth.label.password' | transloco}}</mat-label>
+          <input formControlName="password" matInput required type="password">
+          <mat-error
+            *ngIf="loginForm.get('password')?.invalid">{{'auth.error.invalidPassword' | transloco}}</mat-error>
+        </mat-form-field>
+        <button color="primary" mat-raised-button
+                type="submit">{{'auth.button.login' | transloco}}</button>
+      </form>
+      <span class="sign-in-section__label-register"
+            routerLink="/auth/register">{{'auth.label.register'| transloco}}</span>
+
+    </mat-card-content>
+  </mat-card>
+</section>

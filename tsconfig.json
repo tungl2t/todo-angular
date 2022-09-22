@@ -21,7 +21,39 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@auth/*": [
+        "src/app/features/auth/*"
+      ],
+      "@todo/*": [
+        "src/app/features/todo/*"
+      ],
+      "@enums": [
+        "src/app/common/enums"
+      ],
+      "@constants": [
+        "src/app/common/constants"
+      ],
+      "@services": [
+        "src/app/common/services"
+      ],
+      "@interceptors": [
+        "src/app/common/interceptors"
+      ],
+      "@interfaces": [
+        "src/app/common/interfaces"
+      ],
+      "@helpers": [
+        "src/app/common/helpers"
+      ],
+      "@components": [
+        "src/app/common/components"
+      ],
+      "@env/*": [
+        "src/environments/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

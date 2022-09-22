@@ -1,0 +1,38 @@
+<section class="register-section">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{ 'auth.title.register' | transloco }}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content *ngIf="registerForm">
+      <form (submit)="onSubmit()" [formGroup]="registerForm" class="register-section__form">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'auth.label.email' | transloco}}</mat-label>
+          <input formControlName="email" matInput placeholder="devtest@example.com" required>
+          <mat-error *ngIf="registerForm.get('email')?.invalid">{{'auth.error.invalidEmail' | transloco}}</mat-error>
+        </mat-form-field>
+        <div class="register-section__form__pw" formGroupName="pw">
+          <mat-form-field appearance="outline">
+            <mat-label>{{'auth.label.password' | transloco}}</mat-label>
+            <input formControlName="password" matInput required type="password">
+            <mat-error
+              *ngIf="registerForm.get('pw.password')?.invalid">{{'auth.error.invalidPassword' | transloco}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{'auth.label.confirmPassword' | transloco}}</mat-label>
+            <input formControlName="confirmPassword" matInput required type="password">
+            <mat-error
+              *ngIf="registerForm?.hasError('passwordNotMatch', 'pw') && registerForm.get('pw.confirmPassword')?.touched">{{'auth.error.invalidConfirmPassword' | transloco}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <button color="primary" mat-raised-button
+                type="submit">{{'auth.button.register' | transloco}}</button>
+      </form>
+      <span class="register-section__label-login"
+            routerLink="/auth/login">{{'auth.label.login'| transloco}}</span>
+
+    </mat-card-content>
+  </mat-card>
+</section>
