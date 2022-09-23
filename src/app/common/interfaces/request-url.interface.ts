@@ -1,4 +1,4 @@
 export interface IRequestUrl {
-  url: string;
+  path: string;
   params: Record<string, any>;
 }

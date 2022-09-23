@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{'todo.title.addTodo' | transloco}}</h2>
+<mat-dialog-content *ngIf="todoForm" focus>
+  <form [formGroup]="todoForm">
+    <mat-form-field appearance="outline">
+      <mat-label>{{'todo.label.content' | transloco}}</mat-label>
+      <input formControlName="content" matInput placeholder="Task A" required>
+      <mat-error *ngIf="todoForm?.get('content')?.invalid">{{'todo.error.invalidContent' | transloco}}</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button color="primary" mat-raised-button (click)="onCreate()">{{'todo.button.add' | transloco}}</button>
+  <button color="warn" mat-raised-button [mat-dialog-close]="false">{{'todo.button.cancel' | transloco}}</button>
+</mat-dialog-actions>

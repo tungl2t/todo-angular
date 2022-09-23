@@ -1,0 +1,7 @@
+<mat-toolbar color="primary" class="header-bar">
+  <span>{{ 'todo.title.todo' | transloco}}</span>
+  <span class="header-bar__space"></span>
+  <button mat-icon-button (click)="logoutEvent.emit(true)">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

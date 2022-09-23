@@ -1,1 +1,19 @@
-<p>todo works!</p>
+<section class="todo-section">
+  <app-header-bar (logoutEvent)="logout()"></app-header-bar>
+  <div class="todo-section__list">
+    <div class="todo-section__list__add-item">
+      <button mat-stroked-button color="primary" (click)="onAddTodo()">
+        <mat-icon>add</mat-icon>
+        {{'todo.button.addTodo' | transloco}}
+      </button>
+    </div>
+
+    <mat-card class="todo-section__list__item" *ngFor="let todo of todos$ | async; trackBy:todoTrackBy"
+              (click)="onCheck(todo)">
+      <div>{{todo.content}}</div>
+      <span class="space"></span>
+      <mat-checkbox color="primary" [checked]="todo.completed" (click)="$event.preventDefault()" [disableRipple]="true">
+      </mat-checkbox>
+    </mat-card>
+  </div>
+</section>

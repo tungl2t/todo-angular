@@ -1,4 +1,4 @@
 export enum TodoApiPath {
   todos = 'api/todos',
-  todo = 'api/todos/{todoId}',
+  todo = 'api/todos/{todoId}/completed',
 }

@@ -1,0 +1,41 @@
+.todo-section {
+  width: 100vw;
+  height: 100vh;
+
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+    &__add-item {
+      margin: 0.5rem 0;
+      width: 90%;
+      .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &__item {
+      margin: 0.5rem 0;
+      width: 90%;
+      max-width: 500px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: row;
+
+      &:hover {
+        cursor: pointer;
+        background: #fafafa;
+      }
+
+      .space {
+        flex: auto;
+      }
+    }
+  }
+}

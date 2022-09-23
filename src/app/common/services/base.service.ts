@@ -17,11 +17,11 @@ export class BaseService {
     return this.request(this.httpClient.get(this.getRequestUrl(requestUrl)));
   }
 
-  post(requestUrl: IRequestUrl | string, body: any) {
+  post(requestUrl: IRequestUrl | string, body: Record<string, any> = {}) {
     return this.request(this.httpClient.post(this.getRequestUrl(requestUrl), body));
   }
 
-  put(requestUrl: IRequestUrl | string, body: any) {
+  put(requestUrl: IRequestUrl | string, body: Record<string, any> = {}) {
     return this.request(this.httpClient.put(this.getRequestUrl(requestUrl), body));
   }
 
@@ -29,7 +29,7 @@ export class BaseService {
     return this.request(this.httpClient.delete(this.getRequestUrl(requestUrl)));
   }
 
-  patch(requestUrl: IRequestUrl | string, body: any) {
+  patch(requestUrl: IRequestUrl | string, body: Record<string, any> = {}) {
     return this.request(this.httpClient.patch(this.getRequestUrl(requestUrl), body));
   }
 
@@ -51,8 +51,8 @@ export class BaseService {
     if (typeof requestUrl === 'string') {
       return this.urlJoin(environment.API_CORE, requestUrl);
     }
-    const { url, params } = requestUrl;
-    const replacedUrl = CommonHelper.convertTemplateStringWithObjectProperties(url, params);
+    const { path, params } = requestUrl;
+    const replacedUrl = CommonHelper.convertTemplateStringWithObjectProperties(path, params);
     return this.urlJoin(environment.API_CORE, replacedUrl);
   }
 
