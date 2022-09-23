@@ -37,6 +37,7 @@ export class SignInComponent extends BaseComponent implements OnInit {
           next: (v) => {
             StorageHelper.setItem(StorageKeys.bearerToken, v.data?.accessToken);
             StorageHelper.setItem(StorageKeys.refreshToken, v.data?.refreshToken);
+            StorageHelper.setItem(StorageKeys.userEmail, this.loginForm?.value.email);
             this._router.navigate(['todo']);
           },
         });

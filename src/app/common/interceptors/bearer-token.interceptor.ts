@@ -11,7 +11,6 @@ export class BearerTokenInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let bearerToken = StorageHelper.getItem(StorageKeys.bearerToken);
-
     if (!!bearerToken) {
       request = request.clone({
         setHeaders: {

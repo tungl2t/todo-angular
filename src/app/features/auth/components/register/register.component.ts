@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
 
 import { BaseComponent } from '@components';
 import { AuthService } from '@auth/services';
 import { IRegister } from '@auth/interfaces';
-import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-register',

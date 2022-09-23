@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { map, Observable } from 'rxjs';
 
 import { BaseService } from '@services';
@@ -11,9 +12,10 @@ import { ICreateTodo, ITodo } from '@todo/interfaces';
   providedIn: 'root',
 })
 export class TodoService extends BaseService {
-  constructor(private readonly _httpClient: HttpClient) {
+  constructor(private readonly _httpClient: HttpClient, private readonly _snackbar: MatSnackBar) {
     super();
     this.httpClient = _httpClient;
+    this.snackBar = _snackbar;
   }
 
   getListTodos(): Observable<ITodo[]> {

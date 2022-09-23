@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_CORE: 'http://localhost:3000',
-  HASH_SALT: 'IAnNbCKN4x3VBOy4bkDDDDudWbinh0Az',
+  HASH_SALT: '52055eb649dd64a2270dd6cd8e125bcce3de9cbb2d5138295220197b0a744229',
 };
 
 /*
